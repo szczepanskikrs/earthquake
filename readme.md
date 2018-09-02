@@ -14,14 +14,15 @@ In this example -117 is desired longitude and 34 is latitude.
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
 Unit tests can be run by running
 
 ```
 ./gradlew test
+```
+or for windows
+
+```
+./gradlew.bat test
 ```
 
 ## Acknowledgments
