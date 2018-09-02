@@ -1,4 +1,4 @@
-package model.validation
+package model.processing.validation
 
 class DefaultValidator : InputValidator {
     override fun validate(coordinates: Pair<Double, Double>) {

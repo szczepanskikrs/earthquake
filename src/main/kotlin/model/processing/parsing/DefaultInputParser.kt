@@ -1,4 +1,4 @@
-package model.parsing
+package model.processing.parsing
 
 class DefaultInputParser : InputParser {
     override fun parse(input: String): Pair<Double, Double> {

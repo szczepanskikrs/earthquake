@@ -1,11 +1,13 @@
 package di
 
 import CommonValues
-import model.validation.DefaultValidator
+import CommonValues.EXCEPTION_HANDLER
+import CommonValues.OUTPUT_HANDLER
+import model.processing.validation.DefaultValidator
 import model.communication.EarthquakeService
-import model.parsing.DefaultInputParser
-import model.parsing.InputParser
-import model.validation.InputValidator
+import model.processing.parsing.DefaultInputParser
+import model.processing.parsing.InputParser
+import model.processing.validation.InputValidator
 import org.koin.dsl.module.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -36,9 +38,13 @@ val parserModule = module {
 }
 
 val exceptionHandlerModule = module {
-    single { Consumer<Throwable>(System.out::println) }
+    single(EXCEPTION_HANDLER) { Consumer<Throwable>(System.out::println) }
 }
 
 val inputModule = module {
     factory { readLine()!! }
+}
+
+val outputModule = module {
+    single(OUTPUT_HANDLER) { Consumer<String>(System.out::println) }
 }

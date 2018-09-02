@@ -35,7 +35,7 @@ data class QuakeDetails(@SerializedName("mag") val magnitude: Double?,
                         @SerializedName("nst") val nst: Int?,
                         @SerializedName("dmin") val dmin: Double?,
                         @SerializedName("rms") val rms: Double?,
-                        @SerializedName("gap") val gap: Int?,
+                        @SerializedName("gap") val gap: Double?,
                         @SerializedName("mapType") val magType: String?,
                         @SerializedName("type") val type: String?,
                         @SerializedName("title") val title: String?)
@@ -49,3 +49,16 @@ data class QuakesMetaData(val generated: Long,
                           val status: Short,
                           val api: String,
                           val count: Int)
+
+data class ProcessedOutput(val title: String? = "Empty",
+                           val distanceFromEpicenter:Int? = 0){
+
+    override fun toString(): String {
+        return StringBuilder()
+                .append(title)
+                .append(" || ")
+                .append(distanceFromEpicenter)
+                .append("km")
+                .toString()
+    }
+}
